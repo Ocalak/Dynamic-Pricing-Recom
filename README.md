@@ -1,96 +1,43 @@
-# Dynamic Pricing Engine
 
-A comprehensive Python library for dynamic pricing recommendations that adapts to market conditions, demand patterns, and competitive landscapes.
+# 1. Multiple Pricing Strategies:
 
-## Features
+Demand-based pricing (adjusts based on demand levels)
+Competitor-based pricing (positions relative to competitors)
+Surge pricing (for high-demand, low-inventory situations)
+Cost-plus pricing foundation
 
-- **Multiple Pricing Strategies**: Demand-based, competitor-based, surge pricing
-- **Market Factor Analysis**: Demand scoring, inventory levels, seasonality
-- **Business Rules**: Price constraints, margin requirements, elasticity modeling
-- **Confidence Scoring**: AI-powered recommendation confidence assessment
-- **Batch Processing**: Handle multiple products simultaneously
-- **Export Capabilities**: CSV export for analysis and reporting
+# 2. Market Factor Analysis:
 
-## Installation
+Demand scoring (0-1 scale)
+Inventory levels and thresholds
+Competitor pricing data
+Seasonality factors
+Weather impact
+Promotional activity effects
 
-```bash
-pip install dynamic-pricing-engine
-```
-```
-git clone https://github.com/yourusername/dynamic-pricing-engine.git
-cd dynamic-pricing-engine
-pip install -e .
-```
+# 3. Business Rules & Constraints:
 
-from dynamic_pricing_engine import DynamicPricingEngine, Product, MarketData
-from datetime import datetime
+Maximum price increase/decrease limits
+Minimum margin requirements
+Product-specific price floors and ceilings
+Price elasticity considerations
 
-# Initialize the engine
-engine = DynamicPricingEngine()
+# 4. Advanced Calculations:
 
-# Add a product
-product = Product(
-    id="PROD_001",
-    name="Wireless Headphones",
-    category="Electronics",
-    base_price=99.99,
-    cost=50.00,
-    min_price=79.99,
-    max_price=149.99,
-    elasticity=-1.2
-)
-engine.add_product(product)
+Price elasticity impact on demand
+Expected revenue change predictions
+Confidence scoring for recommendations
+Automated strategy selection
 
-# Create market data
-market_data = MarketData(
-    timestamp=datetime.now(),
-    demand_score=0.8,
-    competitor_avg_price=95.00,
-    inventory_level=25,
-    seasonality_factor=1.1,
-    promotional_activity=False
-)
+# 5. Product Management:
 
-# Generate recommendation
-``bash
-recommendation = engine.generate_recommendation("PROD_001", market_data)
-print(f"Recommended price: ${recommendation.recommended_price:.2f}")
-```
+Individual product profiles with costs, constraints, and elasticity
+Batch processing for multiple products
+Historical data tracking
 
-# Quick Start
-```python
-from dynamic_pricing_engine import DynamicPricingEngine, Product, MarketData
-from datetime import datetime
-```
+# How to Use:
 
-# Initialize the engine
-engine = DynamicPricingEngine()
-
-# Add a product
-product = Product(
-    id="PROD_001",
-    name="Wireless Headphones",
-    category="Electronics",
-    base_price=99.99,
-    cost=50.00,
-    min_price=79.99,
-    max_price=149.99,
-    elasticity=-1.2
-)
-engine.add_product(product)
-
-# Create market data
-market_data = MarketData(
-    timestamp=datetime.now(),
-    demand_score=0.8,
-    competitor_avg_price=95.00,
-    inventory_level=25,
-    seasonality_factor=1.1,
-    promotional_activity=False
-)
-
-# Testing
-Run the test suite:
-```bash
-pytest tests/
-```
+Initialize the engine and add your products with their characteristics
+Update market data with current conditions (demand, inventory, competitors)
+Generate recommendations for individual products or batches
+Export results to CSV for further analysis
