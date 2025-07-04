@@ -52,12 +52,16 @@ market_data = MarketData(
 )
 
 # Generate recommendation
+``bash
 recommendation = engine.generate_recommendation("PROD_001", market_data)
 print(f"Recommended price: ${recommendation.recommended_price:.2f}")
+```
 
 # Quick Start
-pythonfrom dynamic_pricing_engine import DynamicPricingEngine, Product, MarketData
+```python
+from dynamic_pricing_engine import DynamicPricingEngine, Product, MarketData
 from datetime import datetime
+```
 
 # Initialize the engine
 engine = DynamicPricingEngine()
@@ -87,6 +91,6 @@ market_data = MarketData(
 
 # Testing
 Run the test suite:
-```
-bashpytest tests/
+```bash
+pytest tests/
 ```
